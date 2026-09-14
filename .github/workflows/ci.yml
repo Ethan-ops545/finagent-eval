@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  selfcheck:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt pytest
+
+      - name: 重新生成基准数据（验证可复现）
+        run: python scripts/make_synthetic_data.py
+
+      - name: 快照必须与脚本输出一致
+        run: git diff --exit-code -- data/snapshots
+
+      - name: 测试
+        run: python -m pytest tests/ -v
+
+      # run_demo.py 的退出码按"评测器自己是否可信"来定：
+      #   1 检查器误报或漏报  2 参考实现与基准脱节  3 判分器有问题
+      - name: 自检（检查器 / 参考实现 / 判分器）
+        run: python run_demo.py
+
+      - name: 上传记分卡
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scorecard-py${{ matrix.python-version }}
+          path: runs/

@@ -1,5 +1,8 @@
 # finagent-eval
 
+[![CI](https://github.com/Ethan-ops545/finagent-eval/actions/workflows/ci.yml/badge.svg)](https://github.com/Ethan-ops545/finagent-eval/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 一个最小的**金融研究 Agent** + 一套**能自证有效的评测**。
 
 Agent 的部分不难：调工具取财报、算几个指标、写一段结论。
