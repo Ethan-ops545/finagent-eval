@@ -1,0 +1,150 @@
+{
+  "ticker": "ORCA",
+  "name": "Orca Marine Logistics (虚构)",
+  "sector": "航运物流",
+  "currency": "USD",
+  "synthetic": true,
+  "note": "合成数据，非真实公司财报。生成脚本见 scripts/make_synthetic_data.py",
+  "statements": {
+    "income": {
+      "FY2022": {
+        "_published": "2023-02-16",
+        "_unit": "千美元",
+        "revenue": 1537000.0,
+        "cost_of_revenue": 1243433.0,
+        "gross_profit": 293567.0,
+        "operating_expenses": 196736.0,
+        "operating_income": 96831.0,
+        "interest_expense": 16907.0,
+        "pretax_income": 79924.0,
+        "income_tax": 19981.0,
+        "net_income": 59943.0
+      },
+      "FY2023": {
+        "_published": "2024-02-15",
+        "_unit": "千美元",
+        "revenue": 1475520.0,
+        "cost_of_revenue": 1218779.52,
+        "gross_profit": 256740.48,
+        "operating_expenses": 197719.68,
+        "operating_income": 59020.8,
+        "interest_expense": 16230.72,
+        "pretax_income": 42790.08,
+        "income_tax": 10697.52,
+        "net_income": 32092.56
+      },
+      "FY2024": {
+        "_published": "2025-02-14",
+        "_unit": "千美元",
+        "revenue": 1608316.8,
+        "cost_of_revenue": 1281828.49,
+        "gross_profit": 326488.31,
+        "operating_expenses": 202647.92,
+        "operating_income": 123840.39,
+        "interest_expense": 17691.48,
+        "pretax_income": 106148.91,
+        "income_tax": 26537.23,
+        "net_income": 79611.68
+      },
+      "FY2025": {
+        "_published": "2026-02-13",
+        "_unit": "千美元",
+        "revenue": 1688732.64,
+        "cost_of_revenue": 1354363.58,
+        "gross_profit": 334369.06,
+        "operating_expenses": 217846.51,
+        "operating_income": 116522.55,
+        "interest_expense": 18576.06,
+        "pretax_income": 97946.49,
+        "income_tax": 24486.62,
+        "net_income": 73459.87
+      }
+    },
+    "balance": {
+      "FY2022": {
+        "_published": "2023-02-16",
+        "_unit": "千美元",
+        "cash_and_equivalents": 215180.0,
+        "accounts_receivable": 292030.0,
+        "inventory": 261120.93,
+        "current_assets": 768330.93,
+        "property_plant_equipment": 845350.0,
+        "total_assets": 1613680.93,
+        "accounts_payable": 211383.61,
+        "short_term_debt": 122960.0,
+        "current_liabilities": 334343.61,
+        "long_term_debt": 399620.0,
+        "total_liabilities": 733963.61,
+        "total_equity": 879717.32
+      },
+      "FY2023": {
+        "_published": "2024-02-15",
+        "_unit": "千美元",
+        "cash_and_equivalents": 206572.8,
+        "accounts_receivable": 280348.8,
+        "inventory": 255943.7,
+        "current_assets": 742865.3,
+        "property_plant_equipment": 811536.0,
+        "total_assets": 1554401.3,
+        "accounts_payable": 207192.52,
+        "short_term_debt": 118041.6,
+        "current_liabilities": 325234.12,
+        "long_term_debt": 383635.2,
+        "total_liabilities": 708869.32,
+        "total_equity": 845531.98
+      },
+      "FY2024": {
+        "_published": "2025-02-14",
+        "_unit": "千美元",
+        "cash_and_equivalents": 225164.35,
+        "accounts_receivable": 305580.19,
+        "inventory": 269183.98,
+        "current_assets": 799928.53,
+        "property_plant_equipment": 884574.24,
+        "total_assets": 1684502.77,
+        "accounts_payable": 217910.84,
+        "short_term_debt": 128665.34,
+        "current_liabilities": 346576.19,
+        "long_term_debt": 418162.37,
+        "total_liabilities": 764738.56,
+        "total_equity": 919764.21
+      },
+      "FY2025": {
+        "_published": "2026-02-13",
+        "_unit": "千美元",
+        "cash_and_equivalents": 236422.57,
+        "accounts_receivable": 320859.2,
+        "inventory": 284416.35,
+        "current_assets": 841698.12,
+        "property_plant_equipment": 928802.95,
+        "total_assets": 1770501.07,
+        "accounts_payable": 230241.81,
+        "short_term_debt": 135098.61,
+        "current_liabilities": 365340.42,
+        "long_term_debt": 439070.49,
+        "total_liabilities": 804410.91,
+        "total_equity": 966090.16
+      }
+    }
+  },
+  "market": {
+    "2024-04-15": {
+      "_published": "2024-04-15",
+      "_unit": "美元 / 千股",
+      "close_price": 18.75,
+      "shares_outstanding": 310000.0
+    },
+    "2025-04-15": {
+      "_published": "2025-04-15",
+      "_unit": "美元 / 千股",
+      "close_price": 20.06,
+      "shares_outstanding": 313100.0
+    },
+    "2026-04-15": {
+      "_published": "2026-04-15",
+      "_unit": "美元 / 千股",
+      "close_price": 21.38,
+      "shares_outstanding": 316200.0
+    }
+  }
+}

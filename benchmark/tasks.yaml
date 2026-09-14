@@ -1,0 +1,178 @@
+# 基准任务集。
+#
+# 每个任务规定三件事：
+#   1. as_of —— 信息可见日。晚于这个日期发布的数据都算前视偏差（lookahead）。
+#   2. require —— 报告里**必须**出现的可复算结论，以及各自的正确算法。
+#      评测器不是去猜 Agent 想算什么，而是按这里的 formula 独立算一遍再比对。
+#   3. rubric —— 只能靠判断打分的部分（表述质量），与可复算部分严格分开。
+#
+# 注意 formula 里的变量名指向 inputs 中的字段引用，格式：
+#   TICKER.statement.PERIOD.field   或   TICKER.market.DATE.field
+
+- id: nova_fy2024_basic
+  ticker: NOVA
+  as_of: "2025-04-15"
+  fiscal_year: FY2024
+  question: "基于截至 2025-04-15 可获得的信息，给出 NOVA 的 FY2024 经营概览。"
+  require:
+    - metric: revenue_growth_yoy
+      unit: ratio
+      formula: "rev_cur / rev_prev - 1"
+      inputs:
+        rev_cur: NOVA.income.FY2024.revenue
+        rev_prev: NOVA.income.FY2023.revenue
+    - metric: gross_margin
+      unit: ratio
+      formula: "gp / rev"
+      inputs:
+        gp: NOVA.income.FY2024.gross_profit
+        rev: NOVA.income.FY2024.revenue
+    - metric: net_margin
+      unit: ratio
+      formula: "ni / rev"
+      inputs:
+        ni: NOVA.income.FY2024.net_income
+        rev: NOVA.income.FY2024.revenue
+    - metric: current_ratio
+      unit: ratio
+      formula: "ca / cl"
+      inputs:
+        ca: NOVA.balance.FY2024.current_assets
+        cl: NOVA.balance.FY2024.current_liabilities
+    - metric: pe_ratio
+      unit: multiple
+      formula: "price * shares / ni"
+      inputs:
+        price: NOVA.market.2025-04-15.close_price
+        shares: NOVA.market.2025-04-15.shares_outstanding
+        ni: NOVA.income.FY2024.net_income
+    - metric: interest_coverage
+      unit: multiple
+      formula: "ebit / interest"
+      inputs:
+        ebit: NOVA.income.FY2024.operating_income
+        interest: NOVA.income.FY2024.interest_expense
+    - metric: debt_to_assets
+      unit: ratio
+      formula: "tl / ta"
+      inputs:
+        tl: NOVA.balance.FY2024.total_liabilities
+        ta: NOVA.balance.FY2024.total_assets
+  rubric:
+    - "结论是否点明了增长与盈利能力两条线，而不是只罗列数字"
+    - "是否说明了结论所依据的期间与信息可见日"
+    - "是否避免了数据不支持的推断（如预测下一年业绩）"
+    - "给出偿债比率时是否交代了行业语境，而不是直接下安全/危险的定论"
+    - "偿债能力是否同时用到盈利端（利息保障）与资产负债端（负债率），而非只看其一"
+
+- id: orca_fy2024_basic
+  ticker: ORCA
+  as_of: "2025-04-15"
+  fiscal_year: FY2024
+  question: "基于截至 2025-04-15 可获得的信息，给出 ORCA 的 FY2024 经营概览。"
+  require:
+    - metric: revenue_growth_yoy
+      unit: ratio
+      formula: "rev_cur / rev_prev - 1"
+      inputs:
+        rev_cur: ORCA.income.FY2024.revenue
+        rev_prev: ORCA.income.FY2023.revenue
+    - metric: gross_margin
+      unit: ratio
+      formula: "gp / rev"
+      inputs:
+        gp: ORCA.income.FY2024.gross_profit
+        rev: ORCA.income.FY2024.revenue
+    - metric: net_margin
+      unit: ratio
+      formula: "ni / rev"
+      inputs:
+        ni: ORCA.income.FY2024.net_income
+        rev: ORCA.income.FY2024.revenue
+    - metric: current_ratio
+      unit: ratio
+      formula: "ca / cl"
+      inputs:
+        ca: ORCA.balance.FY2024.current_assets
+        cl: ORCA.balance.FY2024.current_liabilities
+    - metric: pe_ratio
+      unit: multiple
+      formula: "price * shares / ni"
+      inputs:
+        price: ORCA.market.2025-04-15.close_price
+        shares: ORCA.market.2025-04-15.shares_outstanding
+        ni: ORCA.income.FY2024.net_income
+    - metric: interest_coverage
+      unit: multiple
+      formula: "ebit / interest"
+      inputs:
+        ebit: ORCA.income.FY2024.operating_income
+        interest: ORCA.income.FY2024.interest_expense
+    - metric: debt_to_assets
+      unit: ratio
+      formula: "tl / ta"
+      inputs:
+        tl: ORCA.balance.FY2024.total_liabilities
+        ta: ORCA.balance.FY2024.total_assets
+  rubric:
+    - "结论是否点明了增长与盈利能力两条线，而不是只罗列数字"
+    - "是否说明了结论所依据的期间与信息可见日"
+    - "是否避免了数据不支持的推断（如预测下一年业绩）"
+    - "给出偿债比率时是否交代了行业语境，而不是直接下安全/危险的定论"
+    - "偿债能力是否同时用到盈利端（利息保障）与资产负债端（负债率），而非只看其一"
+
+- id: plnt_fy2024_basic
+  ticker: PLNT
+  as_of: "2025-04-15"
+  fiscal_year: FY2024
+  question: "基于截至 2025-04-15 可获得的信息，给出 PLNT 的 FY2024 经营概览。"
+  require:
+    - metric: revenue_growth_yoy
+      unit: ratio
+      formula: "rev_cur / rev_prev - 1"
+      inputs:
+        rev_cur: PLNT.income.FY2024.revenue
+        rev_prev: PLNT.income.FY2023.revenue
+    - metric: gross_margin
+      unit: ratio
+      formula: "gp / rev"
+      inputs:
+        gp: PLNT.income.FY2024.gross_profit
+        rev: PLNT.income.FY2024.revenue
+    - metric: net_margin
+      unit: ratio
+      formula: "ni / rev"
+      inputs:
+        ni: PLNT.income.FY2024.net_income
+        rev: PLNT.income.FY2024.revenue
+    - metric: current_ratio
+      unit: ratio
+      formula: "ca / cl"
+      inputs:
+        ca: PLNT.balance.FY2024.current_assets
+        cl: PLNT.balance.FY2024.current_liabilities
+    - metric: pe_ratio
+      unit: multiple
+      formula: "price * shares / ni"
+      inputs:
+        price: PLNT.market.2025-04-15.close_price
+        shares: PLNT.market.2025-04-15.shares_outstanding
+        ni: PLNT.income.FY2024.net_income
+    - metric: interest_coverage
+      unit: multiple
+      formula: "ebit / interest"
+      inputs:
+        ebit: PLNT.income.FY2024.operating_income
+        interest: PLNT.income.FY2024.interest_expense
+    - metric: debt_to_assets
+      unit: ratio
+      formula: "tl / ta"
+      inputs:
+        tl: PLNT.balance.FY2024.total_liabilities
+        ta: PLNT.balance.FY2024.total_assets
+  rubric:
+    - "结论是否点明了增长与盈利能力两条线，而不是只罗列数字"
+    - "是否说明了结论所依据的期间与信息可见日"
+    - "是否避免了数据不支持的推断（如预测下一年业绩）"
+    - "给出偿债比率时是否交代了行业语境，而不是直接下安全/危险的定论"
+    - "偿债能力是否同时用到盈利端（利息保障）与资产负债端（负债率），而非只看其一"
